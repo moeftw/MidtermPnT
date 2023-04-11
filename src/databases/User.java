@@ -4,7 +4,6 @@ public class User {
     String stName;
     String stID;
     String stDOB;
-
     public User(){}
     public User(String stName, String stID){
         this.stName = stName;

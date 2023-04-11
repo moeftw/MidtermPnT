@@ -11,7 +11,6 @@ public class Sort {
      * Store all the sorted data into one of the databases.
      */
 
-
     public void selectionSort(int[] array) {
         final long startTime = System.currentTimeMillis();
         int[] list = Arrays.copyOf(array, array.length);
@@ -42,14 +41,11 @@ public class Sort {
 
             int j = i - 1;
             while (j >= 0 && list[j] > key) {
-
                 list[j + 1] = list[j];
                 j--;
-
             }
             list[j + 1] = key;
         }
-
 
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
@@ -72,7 +68,6 @@ public class Sort {
 
         return list;
     }
-
 
     public int[] mergeSort(int[] array) {
         int[] list = Arrays.copyOf(array, array.length);
@@ -106,4 +101,11 @@ public class Sort {
         while (i < leftArray.length) {
             list[k++] = leftArray[i++];
         }
-        while (j < right
+        while (j < rightArray.length) {
+            list[k++] = rightArray[j++];
+        }
+    }
+}
+
+
+
