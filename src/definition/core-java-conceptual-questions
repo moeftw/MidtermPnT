@@ -1,14 +1,21 @@
 Please answer the below core-java Questions:
 
 What is programing language?
-A.
+A.: A programming language is a formal language used to write instructions that can be executed by a computer.
+It consists of a set of rules, symbols, and syntax that allow programmers to communicate with the computer and
+create software applications.
 
 
 
 
 What jdk contains or composed of and define each components?
 A.
-
+JDK (Java Development Kit) is a software development environment used for creating Java applications. It contains several components, including:
+Java Runtime Environment (JRE): This is the part of the JDK that allows you to run Java applications.
+Java Development Kit (JDK): This is the part of the JDK that includes tools for developing, testing, and debugging Java applications.
+Java Virtual Machine (JVM): This is the part of the JDK that interprets compiled Java code and executes it on different platforms.
+Java Compiler: This is the tool that converts Java source code into bytecode that can be executed by the JVM.
+Java API (Application Programming Interface): This is a set of pre-written Java classes and interfaces that provide functionality to developers.
 
 
 
@@ -20,10 +27,18 @@ A.
 
 What are the IDEs available in the market to support java?
 A.
-
+An IDE (Integrated Development Environment) is a software application that provides a comprehensive environment for writing, testing, and debugging code. IDEs typically include features such as code editors,
+compilers, debuggers, and build automation tools.
 
 
 Explain the entire java life cycle.
+Write Java code in a text editor or IDE
+Compile the Java code into bytecode using the Java compiler
+Run the bytecode on the Java Virtual Machine (JVM) to produce the desired output
+Test the application to ensure it is functioning correctly
+Deploy the application to a server or other environment for use by end-users
+Maintain the application by fixing bugs, adding new features, and improving performance.
+
 what is class?
 A class is a blueprint or template for creating objects in Java. It defines the attributes and methods that an object of that class will have.
 
