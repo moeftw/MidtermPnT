@@ -13,9 +13,9 @@ public class UseQueue {
 		 */
 
 		Queue<String> queue = new LinkedList<>();
-		queue.add("Alice");
-		queue.add("Bob");
-		queue.add("Charlie");
+		queue.add("Sayed");
+		queue.add("Taseen");
+		queue.add("Khan");
 
 		System.out.println("Peek: " + queue.peek());
 
