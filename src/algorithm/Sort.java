@@ -1,39 +1,41 @@
 package algorithm;
 
+import java.util.Arrays;
+
 public class Sort {
 
     long executionTime = 0;
+
     /*
      * Please implement all the sorting algorithm. Feel free to add helper methods.
      * Store all the sorted data into one of the databases.
      */
 
 
-    public int[] selectionSort(int[] array) {
+    public void selectionSort(int[] array) {
         final long startTime = System.currentTimeMillis();
-        int[] list = array;
+        int[] list = Arrays.copyOf(array, array.length);
 
-        for (int j = 0; j < array.length - 1; j++) {
+        for (int j = 0; j < list.length - 1; j++) {
             int min = j;
-            for (int i = j + 1; i < array.length; i++) {
-                if (array[i] < array[min])
+            for (int i = j + 1; i < list.length; i++) {
+                if (list[i] < list[min])
                     min = i;
             }
 
-            int temp = array[min];
-            array[min] = array[j];
-            array[j] = temp;
+            int temp = list[min];
+            list[min] = list[j];
+            list[j] = temp;
         }
 
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
         this.executionTime = executionTime;
-        return list;
     }
 
     public int[] insertionSort(int[] array) {
         final long startTime = System.currentTimeMillis();
-        int[] list = array;
+        int[] list = Arrays.copyOf(array, array.length);
 
         for (int i = 1; i < list.length; i++) {
             int key = list[i];
@@ -56,8 +58,8 @@ public class Sort {
     }
 
     public int[] bubbleSort(int[] array) {
-        int[] list = array;
-        //implement here
+        int[] list = Arrays.copyOf(array, array.length);
+
         for (int i = 0; i < list.length - 1; i++) {
             for (int j = 0; j < list.length - i - 1; j++) {
                 if (list[j] > list[j + 1]) {
@@ -73,71 +75,35 @@ public class Sort {
 
 
     public int[] mergeSort(int[] array) {
-        int[] list = array;
-        //implement here
+        int[] list = Arrays.copyOf(array, array.length);
 
-        if (list.length > 1) {
-            int mid = list.length / 2;
-            int[] left = Arrays.copyOfRange(list, 0, mid);
-            int[] right = Arrays.copyOfRange(list, mid, list.length);
-            mergeSort(left);
-            mergeSort(right);
-            int i = 0, j = 0, k = 0;
-            while (i < left.length && j < right.length) {
-                if (left[i] <= right[j]) {
-                    list[k++] = left[i++];
-                } else {
-                    list[k++] = right[j++];
-                }
-            }
-            while (i < left.length) {
-                list[k++] = left[i++];
-            }
-            while (j < right.length) {
-                list[k++] = right[j++];
-            }
-        }
+        mergeSort(list, 0, list.length - 1);
 
         return list;
     }
 
-
-    public int[] quickSort(int[] array) {
-        int[] list = array;
-        //implement here
-
-
-        return list;
-    }
-
-    public int[] heapSort(int[] array) {
-        int[] list = array;
-        //implement here
-
-
-        return list;
-    }
-
-
-    public int[] bucketSort(int[] array) {
-        int[] list = array;
-        //implement here
-
-
-        return list;
-    }
-
-    public int[] shellSort(int[] array) {
-        int[] list = array;
-        //implement here
-
-
-        return list;
-    }
-
-    public static void printSortedArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+    private void mergeSort(int[] list, int left, int right) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort(list, left, mid);
+            mergeSort(list, mid + 1, right);
+            merge(list, left, mid, right);
         }
     }
-}
+
+    private void merge(int[] list, int left, int mid, int right) {
+        int[] leftArray = Arrays.copyOfRange(list, left, mid + 1);
+        int[] rightArray = Arrays.copyOfRange(list, mid + 1, right + 1);
+
+        int i = 0, j = 0, k = left;
+        while (i < leftArray.length && j < rightArray.length) {
+            if (leftArray[i] <= rightArray[j]) {
+                list[k++] = leftArray[i++];
+            } else {
+                list[k++] = rightArray[j++];
+            }
+        }
+        while (i < leftArray.length) {
+            list[k++] = leftArray[i++];
+        }
+        while (j < right
