@@ -15,5 +15,24 @@ public class MakePyramid {
         */
 
 
+                int size = 18; // size of the pyramid
+
+                for(int i=1; i<=size; i++){
+
+                    for(int j=1; j<=size-i; j++){
+                        System.out.print('*');
+                    }
+
+
+                    for(int p=1; p<=2*i-1; p++){
+                        System.out.print('*');
+                    }
+
+
+                    System.out.println();
+                }
+            }
         }
-  }
+
+
+

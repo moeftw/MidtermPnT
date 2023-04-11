@@ -1,10 +1,11 @@
 package design;
+public class EmployeeImplementation implements Employee {
 
-public class Methods implements Employee {
-    private int employeeId;
-    private String employeeName;
+    //private instance variables
+     int employeeId;
+     String employeeName;
     private String department;
-    private int salary;
+     int salary;
     private String address;
     private int phoneNumber;
     private String emailAddress;
@@ -13,6 +14,7 @@ public class Methods implements Employee {
     private int age;
     private int bonuses;
 
+    //getter and setter methods for instance variables
     public int employeeId() {
         return employeeId;
     }
@@ -22,22 +24,16 @@ public class Methods implements Employee {
     }
 
     public void assignDepartment() {
-        // implementation for assigning department
+        //implementation for assigning employee to departments goes here
     }
 
     public int calculateSalary() {
-        // implementation for calculating salary
+        //implementation for calculating employee salary goes here
         return salary;
     }
 
     public void benefitLayout() {
-        // implementation for employee benefits
-    }
-
-    public void setAddress(String address) {
-
-        this.address = address;
-
+        //implementation for employee benefits goes here
     }
 
     public void setAddress(String address) {
@@ -72,6 +68,11 @@ public class Methods implements Employee {
         return jobDescription;
     }
 
+    @Override
+    public int age() {
+        return age;
+    }
+
     public void setJobDescription(String jobDescription) {
         this.jobDescription = jobDescription;
     }
@@ -80,7 +81,8 @@ public class Methods implements Employee {
         this.age = age;
     }
 
-    public int calculatebonuses() {
+    public int calculatebonuses(int bonuses) {
+        this.bonuses = bonuses;
         return bonuses;
     }
 }

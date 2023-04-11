@@ -1,22 +1,58 @@
 package design;
 
-public class FortuneEmployee {
+import static design.EmployeeInfo.calculateEmployeeBonus;
+import static design.EmployeeInfo.calculateEmployeePension;
 
-	/**
-	 * FortuneEmployee class has a main methods where you will be able to create Object from
-	 * EmployeeInfo class to use fields and attributes.Demonstrate as many methods as possible 
-	 * to use with proper business work flow.Think as a Software Architect, Product Designer and 
-	 * as a Software Developer.(employee.info.system) package is given as an outline,you need to elaborate
-	 * more to design an application that will meet for fortune 500 Employee Information
-	 * Services.
-	 *
-	 * Use any databases[MongoDB, Oracle, MySql] to store data and retrieve data.
-	 *
-	 **/
-	public static void main(String[] args) {
-		
+public class FortuneEmployee extends EmployeeImplementation {
 
+    private int performanceRating;
+    private String startDate;
 
-	}
+    public FortuneEmployee(int employeeId, String employeeName, int salary, int performanceRating, String startDate) {
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
+        this.salary = salary;
+        this.performanceRating = performanceRating;
+        this.startDate = startDate;
+    }
 
+    public int getPerformanceRating() {
+        return performanceRating;
+    }
+
+    public void setPerformanceRating(int performanceRating) {
+        this.performanceRating = performanceRating;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public int calculateTotalSalary() {
+        return calculateSalary() + calculatebonuses(calculateEmployeeBonus(salary, performanceRating)) + calculateEmployeePension(salary);
+    }
+
+    public void getEmployeeDetails() {
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Employee Name: " + employeeName);
+        System.out.println("Employee Salary: $" + salary);
+        System.out.println("Performance Rating: " + performanceRating);
+        System.out.println("Start Date: " + startDate);
+        System.out.println("Total Salary: $" + calculateTotalSalary());
+    }
+
+    public static void main(String[] args) {
+        FortuneEmployee employee = new FortuneEmployee(1001, "Taseen", 4521, 100, "Jan,2013");
+        employee.setAddress("123 Main St");
+        employee.setPhoneNumber(5551234);
+        employee.setEmployeeEmailAddress("johndoe@example.com");
+        employee.setEmployeeJobTitle("Software Developer");
+        employee.setJobDescription("Develop and maintain software applications.");
+        employee.setAge(21);
+        employee.getEmployeeDetails();
+    }
 }

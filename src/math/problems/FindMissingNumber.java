@@ -10,5 +10,18 @@ public class FindMissingNumber {
          */
          int [] array = new int[]{10, 2, 1, 4, 5, 3, 7, 8, 6};
 
+
+        int missingNumber = missingNumber(array, 10);
+        System.out.println("The number that was missing is " + missingNumber);
+    }
+
+    //this is my static helper method
+    public static int missingNumber(int[] array, int n) {
+        int sum = n * (n + 1) / 2;
+        int arraySum = 0;
+        for (int i = 0; i < array.length; i++) {
+            arraySum += array[i];
+        }
+        return sum - arraySum;
     }
 }
